@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Selisih Senja — Cari Perbedaannya</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="stage">
+  <header id="hud">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">SELISIH SENJA</span>
+      <span class="brand-sub">cari perbedaannya</span>
+    </div>
+
+    <div class="hud-block scene-block">
+      <span class="hud-label">Scene</span>
+      <span id="sceneName" class="hud-value">Pelabuhan Fajar</span>
+      <span id="sceneLevel" class="hud-tag">Mudah</span>
+    </div>
+
+    <div class="hud-block timer-block">
+      <span class="hud-label">Waktu</span>
+      <span id="timerText" class="hud-value">3:00</span>
+      <div class="timer-track" aria-hidden="true"><div id="timerFill"></div></div>
+    </div>
+
+    <div class="hud-block score-block">
+      <span class="hud-label">Skor</span>
+      <span id="scoreText" class="hud-value">0</span>
+      <span id="comboText" class="hud-tag combo-hidden">Combo x2</span>
+    </div>
+
+    <div class="hud-block counter-block">
+      <span class="hud-label">Perbedaan</span>
+      <span id="counterText" class="hud-value">Ditemukan 0/10 &middot; Sisa 10</span>
+      <div id="progressDots" class="dots" aria-hidden="true"></div>
+    </div>
+
+    <button id="hintBtn" type="button" title="Hint (H) — memutus combo">Hint <span id="hintCount">3</span></button>
+  </header>
+
+  <main id="panels">
+    <figure class="panel">
+      <figcaption><span class="panel-tag tag-left">A</span> ASLI</figcaption>
+      <canvas id="panelLeft" width="620" height="400" aria-label="Gambar asli"></canvas>
+    </figure>
+    <figure class="panel">
+      <figcaption><span class="panel-tag tag-right">B</span> VARIAN &mdash; ada 10 perbedaan</figcaption>
+      <canvas id="panelRight" width="620" height="400" aria-label="Gambar varian"></canvas>
+    </figure>
+  </main>
+
+  <footer id="helpbar">
+    <span>Klik perbedaan di panel mana pun &mdash; lingkaran hijau = ketemu, silang merah = meleset (&minus;2 dtk, combo putus).</span>
+    <span class="keys"><b>H</b> Hint &nbsp;&middot;&nbsp; <b>N</b> Scene berikut &nbsp;&middot;&nbsp; <b>R</b> Ulang</span>
+  </footer>
+
+  <footer id="scenesbar" aria-label="Daftar scene">
+    <div class="scene-card" data-scene="0">
+      <span class="scene-card-num">1</span>
+      <span class="scene-card-name">Pelabuhan Fajar</span>
+      <span class="scene-card-meta">Mudah &middot; 3:00 &middot; 10 perbedaan</span>
+      <span class="scene-card-state">&middot; Menunggu</span>
+    </div>
+    <div class="scene-card" data-scene="1">
+      <span class="scene-card-num">2</span>
+      <span class="scene-card-name">Pasar Malam Lentera</span>
+      <span class="scene-card-meta">Sedang &middot; 2:30 &middot; 10 perbedaan</span>
+      <span class="scene-card-state">&middot; Menunggu</span>
+    </div>
+    <div class="scene-card" data-scene="2">
+      <span class="scene-card-num">3</span>
+      <span class="scene-card-name">Observatorium Bintang</span>
+      <span class="scene-card-meta">Sulit &middot; 2:00 &middot; 10 perbedaan</span>
+      <span class="scene-card-state">&middot; Menunggu</span>
+    </div>
+    <p class="scenes-note">Makin jauh makin sulit: detail mengecil, waktu mengetat. Temukan 10/10 di tiap scene untuk menamatkan permainan.</p>
+  </footer>
+
+  <div id="overlay" class="overlay-hidden" role="dialog" aria-live="polite">
+    <div class="overlay-card">
+      <p id="overlayKicker" class="overlay-kicker"></p>
+      <h1 id="overlayTitle"></h1>
+      <p id="overlayBody" class="overlay-body"></p>
+      <p id="overlayScore" class="overlay-score"></p>
+      <div class="overlay-actions">
+        <button id="overlayPrimary" type="button"></button>
+        <button id="overlaySecondary" type="button"></button>
+      </div>
+      <p id="overlayHint" class="overlay-hint"></p>
+    </div>
+  </div>
+
+  <p id="status" role="status" aria-live="polite"></p>
+</div>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
